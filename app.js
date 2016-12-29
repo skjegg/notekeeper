@@ -9,8 +9,8 @@ let fs = require('fs');
 let path = require('path');
 let expressWinston = require('express-winston');
 let winston = require('winston');
-var mongoose = require('mongoose');
-
+let mongoose = require('mongoose');
+let models = require('./models')(mongoose)
 
 
 
@@ -63,16 +63,18 @@ var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function () {
   logger.info('mongo is ready');
-  let modelPath = config.cwd + config.models.directory;
+/*  let modelPath = config.cwd + config.models.directory;
   fs.readdirSync(modelPath).forEach(function (file) {
 
     let model = modelPath + file;
 
     if (path.extname(model) === '.js') {
       logger.info('loading model:' + model);
-      require(model)(app, config, logger, mongoose);
+      models.push({file: require(model)(app, config, logger, mongoose)});
     }
   });
+  logger.info('models' +JSON.stringify(models));
+*/
 });
 
 
@@ -85,7 +87,7 @@ fs.readdirSync(routePath).forEach(function (file) {
 
   if (path.extname(route) === '.js') {
     logger.info('loading route:' + route);
-    require(route)(app, config, logger);
+    require(route)(app, config, logger, models);
   }
 });
 /*
