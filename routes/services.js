@@ -1,10 +1,9 @@
 
-let service = function (app, config, logger) {
+let service = function (app, config, logger, models) {
     debugger;
     
-    let User = require('../models/User');
     app.get("/api/user", function (req, res, next) {
-        let user = new User({
+        let user = new models.User({
             name: 'test',
             email: 'test@test.com'
         });
@@ -13,7 +12,7 @@ let service = function (app, config, logger) {
 
     app.post("/api/user", function (req, res, next){
         
-        let user = new User(req.body);
+        let user = new models.User(req.body);
         
         user.save(function(err){
             if(err) {

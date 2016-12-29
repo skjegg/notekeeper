@@ -1,4 +1,4 @@
-var model = function (app, config, logger, mongoose) {
+module.exports = function (app, config, logger, mongoose) {
     debugger;
     logger.info('model loading--- using ' +mongoose);
     var Schema = mongoose.Schema;
@@ -15,6 +15,6 @@ var model = function (app, config, logger, mongoose) {
     var User = mongoose.model('User', userSchema);
 
     logger.debug('user model loaded');
+    return User;
 }
 
-module.exports = model;
