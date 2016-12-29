@@ -11,7 +11,7 @@
         "intent": "assistant.intent.action.MAIN"
       },
       "httpExecution": {
-        "url": "https://localhost:8080/"
+        "url": "https://www.monstad.online/"
       }
     }
   ]

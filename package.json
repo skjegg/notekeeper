@@ -26,11 +26,17 @@
     ]
   },
   "dependencies": {
+    "actions-on-google": "^1.0.0",
     "body-parser": "^1.15.2",
     "express": "^4.13.4",
-    "actions-on-google": "^1.0.0"
+    "express-winston": "^2.1.2",
+    "fs": "0.0.1-security",
+    "mongoose": "^4.7.5",
+    "path": "^0.12.7",
+    "winston": "^2.3.0"
   },
   "devDependencies": {
-    "semistandard": "^9.1.0"
+    "semistandard": "^9.1.0",
+    "ssh-exec": "^2.0.0"
   }
 }
