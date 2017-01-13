@@ -57,7 +57,6 @@ app.use(expressWinston.logger({
   meta: true
 }));
 
-// Load Models, start db.. Why?? not global anyway? 
 mongoose.connect(config.connection_string);
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
